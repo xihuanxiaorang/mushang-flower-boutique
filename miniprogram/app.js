@@ -1,4 +1,12 @@
+import { setupModal, setupToast } from './utils/extendApi'
+
 App({
   globalData: {},
-  onLaunch() {},
+  /**
+   * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
+   */
+  onLaunch: function () {
+    setupToast()
+    setupModal()
+  },
 })
