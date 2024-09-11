@@ -3,6 +3,8 @@
   <view class="background"></view>
   <view class="container">
     <!-- 轮播图区域 -->
-    <banner bannerList="{{ bannerList }}"></banner>
+    <banner bannerList="{{ bannerList }}" />
+    <!-- 商品导航分类区域 -->
+    <entrance categoryList="{{ categoryList }}" />
   </view>
 </view>

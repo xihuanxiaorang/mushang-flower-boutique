@@ -10,7 +10,7 @@ Page({
      */
     bannerList: [],
     /**
-     * 商品导航数据列表
+     * 商品导航分类数据列表
      */
     categoryList: [],
     /**
