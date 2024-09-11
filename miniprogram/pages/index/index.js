@@ -1,13 +1,43 @@
+import { reqIndexData } from '../../api/index'
+
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    /**
+     * 轮播图数据列表
+     */
+    bannerList: [],
+    /**
+     * 商品导航数据列表
+     */
+    categoryList: [],
+    /**
+     * 活动广告数据列表
+     */
+    activeList: [],
+    /**
+     * 人气推荐商品数据列表
+     */
+    hotList: [],
+    /**
+     * 猜你喜欢商品数据列表
+     */
+    guessList: [],
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: function (options) {
+    this.getIndexData()
+  },
+
+  async getIndexData() {
+    const [bannerList, categoryList, activeList, guessList, hotList] = await reqIndexData()
+    this.setData({ bannerList, categoryList, activeList, guessList, hotList })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
