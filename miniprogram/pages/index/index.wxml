@@ -1,0 +1,8 @@
+<view class="index-container">
+  <!-- 背景区域 -->
+  <view class="background"></view>
+  <view class="container">
+    <!-- 轮播图区域 -->
+    <banner bannerList="{{ bannerList }}"></banner>
+  </view>
+</view>

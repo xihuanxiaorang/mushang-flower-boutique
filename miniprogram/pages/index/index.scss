@@ -1,0 +1,10 @@
+.index-container {
+  position: relative;
+  .background {
+    position: absolute;
+    width: 100%;
+    height: 200rpx;
+    background-color: global.$primary-color;
+    border-radius: 0 0 20rpx 20rpx;
+  }
+}
