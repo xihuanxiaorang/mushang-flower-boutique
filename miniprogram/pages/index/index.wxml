@@ -6,5 +6,7 @@
     <banner bannerList="{{ bannerList }}" />
     <!-- 商品导航分类区域 -->
     <entrance categoryList="{{ categoryList }}" />
+    <!-- 广告区域 -->
+    <advertisement adList="{{ adList }}" />
   </view>
 </view>

@@ -1,7 +1,7 @@
 <view class="nav-container">
   <block wx:for="{{ categoryList }}" wx:key="index">
     <navigator
-      class="nav-item {{ categoryList && categoryList.length >= 5 ? 'small' : ''}}"
+      class="nav-item {{ categoryList.length > 5 ? 'small' : ''}}"
       hover-class="none"
       url="/pages/goods/list/list?category1Id={{ item.id }}"
     >

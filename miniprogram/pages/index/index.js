@@ -14,9 +14,9 @@ Page({
      */
     categoryList: [],
     /**
-     * 活动广告数据列表
+     * 广告数据列表
      */
-    activeList: [],
+    adList: [],
     /**
      * 人气推荐商品数据列表
      */
@@ -35,8 +35,8 @@ Page({
   },
 
   async getIndexData() {
-    const [bannerList, categoryList, activeList, guessList, hotList] = await reqIndexData()
-    this.setData({ bannerList, categoryList, activeList, guessList, hotList })
+    const [bannerList, categoryList, adList, guessList, hotList] = await reqIndexData()
+    this.setData({ bannerList, categoryList, adList, guessList, hotList })
   },
 
   /**

@@ -10,7 +10,7 @@ export const reqIndexData = () => {
     http.get('/index/findBanner'),
     // 商品一级分类数据
     http.get('/index/findCategory1'),
-    // 活动宣传数据
+    // 广告数据
     http.get('/index/advertisement'),
     // 猜你喜欢商品数据
     http.get('/index/findListGoods'),
