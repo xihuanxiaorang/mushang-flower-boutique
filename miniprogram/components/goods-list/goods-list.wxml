@@ -1,0 +1,9 @@
+<view class="goods-list-container">
+  <view class="title">{{ title }}</view>
+  <view class="list">
+    <block wx:for="{{ goodsList}}" wx:key="index">
+      <goods-card goods="{{ item }}" />
+    </block>
+  </view>
+  <navigator class="more" url="/pages/goods/list/list"> 查看更多 </navigator>
+</view>

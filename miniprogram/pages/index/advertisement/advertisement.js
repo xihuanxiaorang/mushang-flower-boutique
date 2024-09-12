@@ -4,7 +4,7 @@ Component({
    */
   properties: {
     /**
-     * 广告数据
+     * 广告列表
      */
     adList: {
       type: Array,

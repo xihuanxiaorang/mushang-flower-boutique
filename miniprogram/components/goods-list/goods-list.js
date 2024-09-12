@@ -4,9 +4,16 @@ Component({
    */
   properties: {
     /**
-     * 商品导航分类列表
+     * 标题
      */
-    categoryList: {
+    title: {
+      type: String,
+      value: '',
+    },
+    /**
+     * 商品列表
+     */
+    goodsList: {
       type: Array,
       value: [],
     },

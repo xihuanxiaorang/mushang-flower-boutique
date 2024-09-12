@@ -8,5 +8,9 @@
     <entrance categoryList="{{ categoryList }}" />
     <!-- 广告区域 -->
     <advertisement adList="{{ adList }}" />
+    <!-- 猜你喜欢 -->
+    <goods-list title="猜你喜欢" goodsList="{{ guessList }}" />
+    <!-- 人气推荐 -->
+    <goods-list title="人气推荐" goodsList="{{ hotList }}" />
   </view>
 </view>

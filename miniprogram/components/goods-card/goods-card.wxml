@@ -1,0 +1,20 @@
+<view class="goods-container">
+  <navigator hover-class="none" url="/pages/goods/detail/detail?goodsId={{goods.id}}">
+    <image class="goods-img" src="{{ goods.imageUrl }}" mode="aspectFill" />
+    <view class="info">
+      <text class="name">{{ goods.name }}</text>
+      <text class="desc">{{ goods.floralLanguage }}</text>
+      <view class="bottom">
+        <view class="price">
+          <text class="symbol">¥</text>
+          <text class="number">{{ goods.price }}</text>
+        </view>
+        <view class="origin-price">
+          <text class="symbol">¥</text>
+          <text class="number">{{ goods.marketPrice }}</text>
+        </view>
+        <image class="cart-btn" src="/assets/images/cart.png" mode="" />
+      </view>
+    </view>
+  </navigator>
+</view>

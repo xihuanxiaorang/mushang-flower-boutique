@@ -4,7 +4,7 @@ Component({
    */
   properties: {
     /**
-     * 轮播图数据
+     * 轮播图列表
      */
     bannerList: {
       type: Array,

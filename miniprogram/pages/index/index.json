@@ -2,6 +2,7 @@
   "usingComponents": {
     "banner": "./banner/banner",
     "entrance": "./entrance/entrance",
-    "advertisement": "./advertisement/advertisement"
+    "advertisement": "./advertisement/advertisement",
+    "goods-list": "/components/goods-list/goods-list"
   }
 }

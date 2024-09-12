@@ -1,0 +1,28 @@
+.goods-list-container {
+  margin-top: 20rpx;
+  .title {
+    font-size: 40rpx;
+    line-height: 52rpx;
+    font-weight: bold;
+    text-align: center;
+    color: #232628;
+  }
+  .list {
+    margin-top: 18rpx;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(350rpx, 1fr));
+    align-items: center;
+    gap: 18rpx;
+  }
+  .more {
+    margin: 20rpx 0;
+    background-color: #ffffff;
+    border-radius: 40rpx;
+    height: 80rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28rpx;
+    color: rgba(35, 38, 40, 0.7);
+  }
+}

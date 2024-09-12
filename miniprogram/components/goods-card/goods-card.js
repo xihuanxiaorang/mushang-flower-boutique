@@ -4,11 +4,11 @@ Component({
    */
   properties: {
     /**
-     * 商品导航分类列表
+     * 商品信息
      */
-    categoryList: {
-      type: Array,
-      value: [],
+    goods: {
+      type: Object,
+      value: {},
     },
   },
 
