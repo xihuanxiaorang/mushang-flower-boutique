@@ -1,0 +1,23 @@
+<view class="background">
+  <image src="/assets/images/background.jpg" mode="aspectFill" />
+</view>
+<view class="container">
+  <!-- 会员授权登录区域 -->
+  <view class="member-container">
+    <view class="vip-wrapper">
+      <block wx:if="{{ userInfo }}">
+        <image class="avatar" src="{{ userInfo.headimgurl}}" mode="aspectFill" />
+        <text class="nickname">{{ userInfo.nickname}}</text>
+      </block>
+      <block wx:else>
+        <image class="avatar" src="/assets/images/avatar.svg" mode="aspectFill" />
+        <view class="meta">
+          <view class="title">尊敬的用户</view>
+          <view class="tips">登录立项更多权益</view>
+        </view>
+      </block>
+    </view>
+    <view class="settings" wx:if="{{ userInfo }}">设置</view>
+    <view class="login-btn" wx:else>授权登录</view>
+  </view>
+</view>
