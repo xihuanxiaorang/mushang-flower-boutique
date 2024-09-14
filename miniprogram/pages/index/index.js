@@ -1,4 +1,4 @@
-import { indexApi } from '../../api/index'
+import { indexApi } from '@/api/index'
 
 Page({
   /**

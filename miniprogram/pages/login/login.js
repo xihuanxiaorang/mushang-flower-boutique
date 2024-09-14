@@ -1,4 +1,4 @@
-import { userStore } from '../../store/index'
+import { userStore } from '@/store/index'
 
 Page({
   /**

@@ -1,4 +1,4 @@
-import { categoryApi } from '../../api/index'
+import { categoryApi } from '@/api/index'
 
 Page({
   /**

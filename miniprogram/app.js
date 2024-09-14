@@ -1,4 +1,4 @@
-import { setupModal, setupToast } from './utils/extendApi'
+import { setupModal, setupToast } from '@/utils/extendApi'
 
 App({
   globalData: {},

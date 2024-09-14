@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx-miniprogram'
-import { userApi } from '../../api/index'
+import { userApi } from '@/api/index'
 
 class UserStore {
   /**

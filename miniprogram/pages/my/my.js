@@ -1,5 +1,5 @@
 import { storeBindingsBehavior } from 'mobx-miniprogram-bindings'
-import { userStore } from '../../store/index'
+import { userStore } from '@/store/index'
 
 Page({
   behaviors: [storeBindingsBehavior],
