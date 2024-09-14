@@ -7,7 +7,13 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    orderPanelItems: [
+      { title: '商品订单', iconfont: 'icon-shangpindingdan', url: '/modules/orderPayModule/pages/order/list/list' },
+      { title: '礼品卡订单', iconfont: 'icon-lipinka', url: '/modules/orderPayModule/pages/order/list/list' },
+      { title: '退款/售后', iconfont: 'icon-tuikuanshouhou', url: '/modules/orderPayModule/pages/order/list/list' },
+    ],
+  },
 
   storeBindings: [
     {

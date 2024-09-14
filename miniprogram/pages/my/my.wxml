@@ -20,4 +20,41 @@
     <view class="settings" wx:if="{{ userInfo }}">设置</view>
     <view class="login-btn" wx:else bind:tap="gotoLogin">授权登录</view>
   </view>
+  <!-- 订单区域 -->
+  <view class="order-container">
+    <view class="title-wrapper">
+      <text class="title">我的订单</text>
+      <text class="more">查看更多></text>
+    </view>
+    <view class="item-wrapper">
+      <block wx:for="{{ orderPanelItems }}" wx:key="index">
+        <navigator class="item" hover-class="none" url="{{ userInfo ? item.url : '/pages/login/login'}}">
+          <view class="iconfont {{ item.iconfont }}"></view>
+          <text class="title">{{ item.title }}</text>
+        </navigator>
+      </block>
+    </view>
+  </view>
+  <!-- 服务协议区域 -->
+  <view class="service-container">
+    <view class="title">关于售前售后服务</view>
+    <view class="item-wrapper">
+      <view class="item">
+        <view class="iconfont icon-kefufenxiermaikefu"></view>
+        <view class="desc">可与小程序客服实时聊天或电话咨询</view>
+      </view>
+      <view class="item">
+        <view class="iconfont icon-shijian"></view>
+        <view class="desc">小程序客服工作时间为: 8:30 ~ 20:30</view>
+      </view>
+      <view class="item">
+        <view class="iconfont icon-dizhiguanli"></view>
+        <view class="desc">鲜花制作完毕情况下暂不支持退款</view>
+      </view>
+      <view class="item">
+        <view class="iconfont icon-zhangben"></view>
+        <view class="desc">鲜花可以提前7-15天预订重大节假日不支持定时配送</view>
+      </view>
+    </view>
+  </view>
 </view>
