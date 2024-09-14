@@ -52,10 +52,8 @@ instance.interceptors.response = async (response) => {
       if (modalRes) {
         // 清除本地存储中的数据
         wx.clearStorageSync()
-        // 导航至登录页面
-        wx.navigateTo({
-          url: '/pages/login/login',
-        })
+        // 跳转到登录页面
+        wx.navigateTo({ url: '/pages/login/login' })
       }
       break
     // 其他状态码

@@ -1,5 +1,5 @@
 <view class="login-container">
   <image class="avatar" src="/assets/images/avatar.svg" mode="" />
   <view class="desc">成为会员，立享更多优惠福利</view>
-  <button class="login-btn">一键登录</button>
+  <button class="login-btn" bind:tap="login">一键登录</button>
 </view>

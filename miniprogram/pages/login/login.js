@@ -1,3 +1,5 @@
+import { userStore } from '../../store/index'
+
 Page({
   /**
    * 页面的初始数据
@@ -8,6 +10,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {},
+
+  /**
+   * 用户登录
+   */
+  login() {
+    wx.login({
+      success: async ({ code }) => {
+        await userStore.login(code)
+        wx.navigateBack()
+      },
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -16,7 +16,9 @@
     "husky": "^9.1.5"
   },
   "dependencies": {
-    "@vant/weapp": "^1.11.6"
+    "@vant/weapp": "^1.11.6",
+    "mobx-miniprogram": "^6.12.3",
+    "mobx-miniprogram-bindings": "^4.0.0"
   },
   "config": {
     "commitizen": {

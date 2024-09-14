@@ -1,4 +1,4 @@
-import { reqIndexData } from '../../api/index'
+import { indexApi } from '../../api/index'
 
 Page({
   /**
@@ -43,7 +43,7 @@ Page({
    */
   async getIndexData() {
     // 调用 API 获取首页数据
-    const [bannerList, categoryList, adList, guessList, hotList] = await reqIndexData()
+    const [bannerList, categoryList, adList, guessList, hotList] = await indexApi.getIndexData()
     // 设置数据到页面的 data 中，并将 loading 设置为 false，表示数据加载完成
     this.setData({ bannerList, categoryList, adList, guessList, hotList, loading: false })
   },

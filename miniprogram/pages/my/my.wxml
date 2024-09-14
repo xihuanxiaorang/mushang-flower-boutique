@@ -13,7 +13,7 @@
         <image class="avatar" src="/assets/images/avatar.svg" mode="aspectFill" />
         <view class="meta">
           <view class="title">尊敬的用户</view>
-          <view class="tips">登录立项更多权益</view>
+          <view class="tips">登录立享更多权益</view>
         </view>
       </block>
     </view>

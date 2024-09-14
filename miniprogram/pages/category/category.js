@@ -1,4 +1,4 @@
-import { reqCategoryData } from '../../api/category'
+import { categoryApi } from '../../api/index'
 
 Page({
   /**
@@ -26,7 +26,7 @@ Page({
    * 获取商品分类数据
    */
   async getCategoryData() {
-    const categoryList = await reqCategoryData()
+    const categoryList = await categoryApi.getCategoryData()
     this.setData({ categoryList })
   },
 
