@@ -18,6 +18,6 @@
       </block>
     </view>
     <view class="settings" wx:if="{{ userInfo }}">设置</view>
-    <view class="login-btn" wx:else>授权登录</view>
+    <view class="login-btn" wx:else bind:tap="gotoLogin">授权登录</view>
   </view>
 </view>

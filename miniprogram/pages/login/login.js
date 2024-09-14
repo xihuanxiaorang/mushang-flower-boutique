@@ -2,21 +2,12 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {
-    userInfo: null,
-  },
+  data: {},
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {},
-
-  /**
-   * 跳转到登录页面
-   */
-  gotoLogin() {
-    wx.navigateTo({ url: '/pages/login/login' })
-  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
