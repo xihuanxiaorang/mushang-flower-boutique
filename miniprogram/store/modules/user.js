@@ -56,6 +56,15 @@ class UserStore {
     this.userInfo = userInfo
     wx.setStorageSync('userInfo', userInfo)
   }
+
+  /**
+   * 退出登录，清除身份令牌以及用户信息
+   */
+  logout() {
+    this.token = ''
+    this.userInfo = null
+    wx.clearStorageSync()
+  }
 }
 
 // 创建 UserStore 实例并导出

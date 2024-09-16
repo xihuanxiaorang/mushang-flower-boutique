@@ -1,0 +1,43 @@
+<view class="container">
+  <view class="settings-container">
+    <navigator class="item" hover-class="none" url="/modules/settingModule/pages/profile/profile">
+      <view class="left">
+        <text>个人资料</text>
+      </view>
+      <view class="right">
+        <view class="iconfont icon-arrow"></view>
+      </view>
+    </navigator>
+    <navigator class="item" hover-class="none" url="/modules/settingModule/pages/address/list/list">
+      <view class="left">
+        <text>收货地址</text>
+      </view>
+      <view class="right">
+        <view class="iconfont icon-arrow"></view>
+      </view>
+    </navigator>
+    <view class="item">
+      <view class="left">
+        <button class="feedback-btn" hover-class="none" plain open-type="feedback">
+          <text>问题反馈</text>
+          <view class="iconfont icon-arrow"></view>
+        </button>
+      </view>
+    </view>
+    <view class="item">
+      <view class="left">
+        <button class="contact-btn" plain hover-class="none" open-type="contact">
+          <text>联系我们</text> <view class="iconfont icon-arrow"></view>
+        </button>
+      </view>
+    </view>
+    <view class="item">
+      <view class="left">
+        <button class="setting-btn" plain hover-class="none" open-type="openSetting">
+          <text>授权信息</text> <view class="iconfont icon-arrow"></view>
+        </button>
+      </view>
+    </view>
+  </view>
+  <button class="logout-btn" bind:tap="logout">退出登录</button>
+</view>

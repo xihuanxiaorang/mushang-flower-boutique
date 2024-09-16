@@ -17,7 +17,9 @@
         </view>
       </block>
     </view>
-    <view class="settings" wx:if="{{ userInfo }}">设置</view>
+    <view class="settings" wx:if="{{ userInfo }}">
+      <navigator url="/modules/settingModule/pages/settings/settings">设置</navigator>
+    </view>
     <view class="login-btn" wx:else bind:tap="gotoLogin">授权登录</view>
   </view>
   <!-- 订单区域 -->

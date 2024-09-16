@@ -38,6 +38,19 @@
       }
     ]
   },
+  "subPackages": [
+    {
+      "root": "modules/settingModule",
+      "name": "settingModule",
+      "pages": ["pages/settings/settings"]
+    }
+  ],
+  "preloadRule": {
+    "pages/my/my": {
+      "network": "all",
+      "packages": ["settingModule"]
+    }
+  },
   "resolveAlias": {
     "@/*": "/*"
   },
