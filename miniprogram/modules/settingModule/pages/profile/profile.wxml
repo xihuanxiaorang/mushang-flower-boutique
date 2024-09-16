@@ -1,55 +1,27 @@
 <view class="container">
-  <view class="profile-container">
-    <view class="item">
-      <view class="left">
-        <text class="title">头像</text>
-      </view>
-      <view class="right">
-        <button class="img-btn" plain open-type="chooseAvatar">
-          <image class="avatar" src="{{ userInfo.headimgurl}}" mode="aspectFill" />
-        </button>
-        <view class="iconfont icon-arrow"></view>
-      </view>
-    </view>
-    <view class="item">
-      <view class="left">
-        <text>昵称</text>
-      </view>
-      <view class="right">
-        <input class="nickname" type="nickname" value="{{ userInfo.nickname}}" />
-        <view class="iconfont icon-arrow"></view>
-      </view>
-    </view>
-    <navigator class="item" hover-class="none" url="/modules/settingModule/pages/address/list/list">
-      <view class="left">
-        <text>收货地址</text>
-      </view>
-      <view class="right">
-        <view class="iconfont icon-arrow"></view>
-      </view>
-    </navigator>
-    <view class="item">
-      <view class="left">
-        <button class="feedback-btn" hover-class="none" plain open-type="feedback">
-          <text>问题反馈</text>
+  <form bindsubmit="saveUserInfo">
+    <view class="profile-container">
+      <view class="item">
+        <view class="left">
+          <text class="title">头像</text>
+        </view>
+        <view class="right">
+          <button class="img-btn" plain open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+            <image class="avatar" src="{{ userInfo.headimgurl}}" mode="aspectFill" />
+          </button>
           <view class="iconfont icon-arrow"></view>
-        </button>
+        </view>
+      </view>
+      <view class="item">
+        <view class="left">
+          <text>昵称</text>
+        </view>
+        <view class="right">
+          <input class="nickname" type="nickname" name="nickname" value="{{ userInfo.nickname }}" />
+          <view class="iconfont icon-arrow"></view>
+        </view>
       </view>
     </view>
-    <view class="item">
-      <view class="left">
-        <button class="contact-btn" plain hover-class="none" open-type="contact">
-          <text>联系我们</text> <view class="iconfont icon-arrow"></view>
-        </button>
-      </view>
-    </view>
-    <view class="item">
-      <view class="left">
-        <button class="setting-btn" plain hover-class="none" open-type="openSetting">
-          <text>授权信息</text> <view class="iconfont icon-arrow"></view>
-        </button>
-      </view>
-    </view>
-  </view>
-  <button class="logout-btn">退出登录</button>
+    <button class="save-btn" form-type="submit">保存</button>
+  </form>
 </view>
