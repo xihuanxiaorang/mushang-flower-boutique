@@ -1,0 +1,37 @@
+<view class="container">
+  <block wx:if="{{ addressList && addressList.length > 0 }}">
+    <block wx:for="{{ addressList }}" wx:key="id">
+      <van-swipe-cell id="swipe-cell-{{ item.id }}" right-width="{{ 65 }}">
+        <van-cell border="{{ false }}">
+          <view class="address-item">
+            <view class="address-detail">
+              <view class="location">{{ item.fullAddress }}</view>
+              <view class="info">
+                <view class="phone">{{ item.phone }}</view>
+                <view class="name">{{ item.name }}</view>
+                <view wx:if="{{ item.isDefault }}">
+                  <van-tag round color="#ffece9" text-color="#f3514f">默认地址</van-tag>
+                </view>
+              </view>
+            </view>
+            <view class="iconfont icon-edit" bind:tap="editAddress" data-id="{{ item.id }}"> </view>
+          </view>
+        </van-cell>
+        <view class="delete-btn" slot="right" bind:tap="deleteAddress" data-id="{{ item.id }}">
+          <text>删除</text>
+        </view>
+      </van-swipe-cell>
+    </block>
+  </block>
+  <block wx:else>
+    <van-empty image="/assets/images/address-empty.svg">
+      <view class="van-empty-description" slot="description">
+        <text>还没有地址</text>
+        <text>请点击下方按钮新增收货地址</text>
+      </view>
+    </van-empty>
+  </block>
+  <navigator hover-class="none" url="/modules/settingModule/pages/address/add/add">
+    <button class="add-address-btn">新增地址</button>
+  </navigator>
+</view>

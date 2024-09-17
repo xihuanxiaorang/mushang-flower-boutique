@@ -42,7 +42,7 @@
     {
       "root": "modules/settingModule",
       "name": "settingModule",
-      "pages": ["pages/settings/settings", "pages/profile/profile"]
+      "pages": ["pages/settings/settings", "pages/profile/profile", "pages/address/list/list"]
     }
   ],
   "preloadRule": {
