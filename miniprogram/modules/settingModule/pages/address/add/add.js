@@ -1,6 +1,6 @@
 import * as addressApi from '../../../api/address'
 import Schema from 'async-validator'
-import { useToast } from '@/utils/extendApi'
+import { useModal, useToast } from '@/utils/extendApi'
 const computedBehavior = require('miniprogram-computed').behavior
 const chooseLocation = requirePlugin('chooseLocation')
 /**
@@ -138,13 +138,48 @@ Page({
 
   /**
    * 跳转到地图选点插件
+   *
+   * 获取用户的当前位置坐标，并跳转到腾讯位置服务插件进行地址选择
    */
   async chooseLocation() {
-    const { latitude, longitude } = await wx.getLocation({ type: 'gcj02' })
+    const { latitude, longitude } = await this.getLocation()
     const referer = 'mushang-flower-boutique'
     const location = JSON.stringify({ latitude, longitude })
     wx.navigateTo({
       url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer + '&location=' + location,
+    })
+  },
+  /**
+   * 获取用户位置信息
+   *
+   * 如果用户没有授权位置信息，则请求授权
+   *
+   * @returns {Promise<{latitude: number, longitude: number}>} 用户的位置信息
+   */
+  getLocation() {
+    return new Promise(async (resolve, reject) => {
+      const { authSetting } = await wx.getSetting()
+      const isAuth = authSetting['scope.userLocation'] === undefined || authSetting['scope.userLocation']
+      if (!isAuth) {
+        const modalRes = await useModal({
+          content: '您的位置信息将用于快速填写收货地址，请确认授权',
+        })
+        if (!modalRes) {
+          reject('用户拒绝授权【scope.userLocation】')
+          return
+        }
+        const { authSetting } = await wx.openSetting()
+        const isAuth = authSetting['scope.userLocation']
+        if (!isAuth) {
+          reject('用户拒绝授权【scope.userLocation】')
+          return
+        }
+      }
+      try {
+        resolve(await wx.getLocation({ type: 'gcj02' }))
+      } catch (err) {
+        reject(err)
+      }
     })
   },
 
