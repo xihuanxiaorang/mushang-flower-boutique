@@ -12,9 +12,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-    this.getAddressList()
-  },
+  onLoad(options) {},
 
   /**
    * 获取用户收货地址列表
@@ -59,7 +57,9 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {},
+  onShow() {
+    this.getAddressList()
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

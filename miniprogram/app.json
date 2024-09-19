@@ -42,7 +42,7 @@
     {
       "root": "modules/settingModule",
       "name": "settingModule",
-      "pages": ["pages/settings/settings", "pages/profile/profile", "pages/address/list/list"]
+      "pages": ["pages/settings/settings", "pages/profile/profile", "pages/address/list/list", "pages/address/add/add"]
     }
   ],
   "preloadRule": {
@@ -53,6 +53,18 @@
   },
   "resolveAlias": {
     "@/*": "/*"
+  },
+  "requiredPrivateInfos": ["getLocation"],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于快速填写收货地址"
+    }
+  },
+  "plugins": {
+    "chooseLocation": {
+      "version": "1.1.1",
+      "provider": "wx76a9a06e5b4e693e"
+    }
   },
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",

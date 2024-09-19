@@ -50,11 +50,11 @@
         <view class="desc">小程序客服工作时间为: 8:30 ~ 20:30</view>
       </view>
       <view class="item">
-        <view class="iconfont icon-dizhiguanli"></view>
+        <view class="iconfont icon-tuikuan"></view>
         <view class="desc">鲜花制作完毕情况下暂不支持退款</view>
       </view>
       <view class="item">
-        <view class="iconfont icon-zhangben"></view>
+        <view class="iconfont icon-yuding"></view>
         <view class="desc">鲜花可以提前7-15天预订重大节假日不支持定时配送</view>
       </view>
     </view>

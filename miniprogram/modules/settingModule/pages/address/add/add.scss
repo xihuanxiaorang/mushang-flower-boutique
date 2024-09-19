@@ -1,0 +1,37 @@
+.van-cell-group--inset {
+  margin: 0 !important;
+  border-radius: 16rpx !important;
+  .van-field__placeholder {
+    color: #999 !important;
+  }
+  .van-cell__title {
+    margin-right: 24rpx !important;
+  }
+  .van-cell__value {
+    text-align: left !important;
+  }
+}
+
+.icon-location {
+  color: #969799;
+  font-size: 32rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+}
+
+.save-btn {
+  margin-top: 50rpx;
+  width: 718rpx;
+  height: 80rpx;
+  border-radius: 50rpx;
+  background-color: global.$primary-color;
+  color: #ffffff;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.button-hover {
+    background-color: #bd0022;
+  }
+}
