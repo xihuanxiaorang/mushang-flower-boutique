@@ -1,22 +1,16 @@
 <view class="category-container">
-  <!-- 一级分类 -->
-  <scroll-view class="left" scroll-y>
-    <block wx:for="{{ categoryList }}" wx:key="id">
-      <view
-        class="item {{ index === activeIndex ? 'active' : ''}}"
-        bind:tap="changeActiveIndex"
-        data-index="{{ index }}"
-        >{{ item.name }}</view
-      >
-    </block>
-  </scroll-view>
-  <!-- 二级分类 -->
-  <view class="right">
-    <block wx:for="{{ categoryList[activeIndex].children }}" wx:key="id">
-      <navigator class="item" hover-class="none" url="/pages/goods/list/list?category2Id={{ item.id }}">
-        <image class="category2-img" src="{{ item.imageUrl }}" />
-        <text class="category2-name">{{ item.name }}</text>
-      </navigator>
-    </block>
+  <view class="left">
+    <van-sidebar active-key="{{ activeIndex }}">
+      <block wx:for="{{ categoryList }}" wx:key="id">
+        <van-sidebar-item title="{{ item.name }}" bind:click="changeActiveIndex" />
+      </block>
+    </van-sidebar>
   </view>
+  <scroll-view class="right">
+    <van-grid column-num="3" border="{{ false }}">
+      <block wx:for="{{ categoryList[activeIndex].children }}" wx:key="id">
+        <van-grid-item icon="{{ item.imageUrl }}" text="{{ item.name }}" />
+      </block>
+    </van-grid>
+  </scroll-view>
 </view>
