@@ -1,0 +1,14 @@
+.goods-list-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(350rpx, 1fr));
+  align-items: center;
+  gap: 18rpx;
+}
+.van-empty {
+  padding: 100rpx 0 !important;
+  .van-empty__image {
+    width: 400rpx !important;
+    height: 400rpx !important;
+  }
+}

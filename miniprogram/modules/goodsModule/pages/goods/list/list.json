@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "goods-card": "/components/goods-card/goods-card",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-divider": "@vant/weapp/divider/index"
+  },
+  "navigationBarTitleText": "商品列表",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f7f4f8",
+  "backgroundTextStyle": "dark"
+}

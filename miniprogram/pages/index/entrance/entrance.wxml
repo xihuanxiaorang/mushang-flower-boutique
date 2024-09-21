@@ -3,7 +3,7 @@
     <navigator
       class="nav-item {{ categoryList.length > 5 ? 'small' : ''}}"
       hover-class="none"
-      url="/pages/goods/list/list?category1Id={{ item.id }}"
+      url="/modules/goodsModule/pages/goods/list/list?category1Id={{ item.id }}"
     >
       <image class="nav-img" src="{{ item.imageUrl }}" mode="aspectFill" />
       <text class="nav-text">{{ item.name }}</text>

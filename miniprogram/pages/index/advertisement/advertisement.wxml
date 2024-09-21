@@ -1,6 +1,10 @@
 <view class="ad-container" wx:if="{{ adList }}">
   <block wx:for="{{ adList }}" wx:key="index">
-    <navigator class="ad-item" hover-class="none" url="/pages/goods/list/list?category2Id={{ item.category2Id}}">
+    <navigator
+      class="ad-item"
+      hover-class="none"
+      url="/modules/goodsModule/pages/goods/list/list?category2Id={{ item.category2Id}}"
+    >
       <image class="ad-img" src="{{ item.imageUrl }}" mode="widthFix" />
     </navigator>
   </block>

@@ -43,12 +43,21 @@
       "root": "modules/settingModule",
       "name": "settingModule",
       "pages": ["pages/settings/settings", "pages/profile/profile", "pages/address/list/list", "pages/address/add/add"]
+    },
+    {
+      "root": "modules/goodsModule",
+      "name": "goodsModule",
+      "pages": ["pages/goods/list/list"]
     }
   ],
   "preloadRule": {
     "pages/my/my": {
       "network": "all",
       "packages": ["settingModule"]
+    },
+    "pages/category/category": {
+      "network": "all",
+      "packages": ["goodsModule"]
     }
   },
   "resolveAlias": {

@@ -9,7 +9,11 @@
   <scroll-view class="right">
     <van-grid column-num="3" border="{{ false }}">
       <block wx:for="{{ categoryList[activeIndex].children }}" wx:key="id">
-        <van-grid-item icon="{{ item.imageUrl }}" text="{{ item.name }}" />
+        <van-grid-item
+          icon="{{ item.imageUrl }}"
+          text="{{ item.name }}"
+          url="/modules/goodsModule/pages/goods/list/list?category2Id={{ item.id }}"
+        />
       </block>
     </van-grid>
   </scroll-view>

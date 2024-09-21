@@ -5,5 +5,5 @@
       <goods-card goods="{{ item }}" />
     </block>
   </view>
-  <navigator class="more" url="/pages/goods/list/list"> 查看更多 </navigator>
+  <navigator class="more" url="/modules/goodsModule/pages/goods/list/list"> 查看更多 </navigator>
 </view>
