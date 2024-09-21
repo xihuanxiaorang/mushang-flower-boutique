@@ -1,6 +1,12 @@
 import * as goodsApi from '../../../api/goods'
+import * as cartApi from '../../../api/cart'
+import { storeBindingsBehavior } from 'mobx-miniprogram-bindings'
+import { userStore } from '@/store/index'
+import { useToast } from '@/utils/extendApi'
 
 Page({
+  behaviors: [storeBindingsBehavior],
+
   /**
    * 页面的初始数据
    */
@@ -25,7 +31,20 @@ Page({
      * 祝福语
      */
     blessing: '',
+    /**
+     * 购物车中商品总数量
+     */
+    total: '',
   },
+
+  storeBindings: [
+    {
+      store: userStore,
+      fields: {
+        userInfo: (store) => store.userInfo,
+      },
+    },
+  ],
 
   /**
    * 生命周期函数--监听页面加载
@@ -33,6 +52,7 @@ Page({
   onLoad(options) {
     const { id } = options
     this.getGoodsById(id)
+    this.getCartCount()
   },
 
   /**
@@ -81,10 +101,32 @@ Page({
   },
 
   /**
-   * 提交表单
-   * @param {Event} e 事件对象
+   * 提交表单，用于将商品加入购物车或者立即购买商品
    */
-  submit(e) {
-    console.log(e)
+  async submit() {
+    const { userInfo, actionType, goods, count, blessing } = this.data
+    const { id } = goods
+    if (!userInfo) {
+      wx.navigateTo({ url: '/pages/login/login' })
+      return
+    }
+    if (actionType === 'buyNow') {
+      wx.navigateTo({ url: `/modules/orderPayModule/pages/order/detail/detail?id=${id}&blessing=${blessing}` })
+    } else {
+      await cartApi.addCart({ id, count, blessing })
+      this.getCartCount()
+      useToast({ title: '加入购物车成功' })
+      this.closePopup()
+    }
+  },
+
+  /**
+   * 获取购物车中商品总数量
+   */
+  async getCartCount() {
+    if (!this.data.userInfo) return
+    const cartList = await cartApi.getCartList()
+    const total = cartList.reduce((sum, item) => sum + item.count, 0)
+    this.setData({ total: total > 99 ? '99+' : total + '' })
   },
 })
