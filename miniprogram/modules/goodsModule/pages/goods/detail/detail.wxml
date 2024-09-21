@@ -1,0 +1,67 @@
+<view class="container goods-detail-container">
+  <!-- 商品大图 -->
+  <image class="banner-img" src="{{ goods.imageUrl}}" mode="aspectFill" bind:tap="previewImage" />
+  <!-- 商品基础信息 -->
+  <view class="base-info">
+    <view class="price-wrapper">
+      <view class="price">¥{{ goods.price }}</view>
+      <view class="origin-price">¥{{ goods.marketPrice }}</view>
+    </view>
+    <view class="title">{{ goods.name }}</view>
+    <view class="desc">{{ goods.floralLanguage }}</view>
+  </view>
+  <!-- 商品详细信息 -->
+  <view class="detail-wrapper">
+    <block wx:for="{{ goods.detailList }}" wx:key="*this">
+      <image class="detail-img" src="{{ item }}" mode="widthFix" />
+    </block>
+  </view>
+  <!-- 商品的底部导航栏 -->
+  <van-goods-action>
+    <van-goods-action-icon icon="shop-o" text="店铺" />
+    <van-goods-action-icon open-type="contact" icon="chat-o" text="客服" />
+    <van-goods-action-icon icon="cart-o" text="购物车" />
+    <van-goods-action-button text="加入购物车" type="warning" bind:click="addCart" />
+    <van-goods-action-button text="立即购买" bind:click="buyNow" />
+  </van-goods-action>
+  <!-- 加入购物车与立即购买弹框 -->
+  <van-action-sheet show="{{ showPopup }}" bind:close="closePopup">
+    <view class="popup">
+      <form bindsubmit="submit">
+        <view class="info">
+          <image class="img" src="{{ goods.imageUrl }}" mode="aspectFill" />
+          <view class="right">
+            <view class="title">{{ goods.name }}</view>
+            <view class="buy">
+              <view class="price">
+                <text class="symbol">¥</text>
+                <text class="number">{{ goods.price }}</text>
+              </view>
+              <van-stepper
+                wx:if="{{ actionType === 'addCart' }}"
+                name="count"
+                value="{{ count }}"
+                min="1"
+                max="200"
+                integer
+                bind:change="changeCount"
+              />
+            </view>
+          </view>
+        </view>
+        <view class="blessing-wrapper">
+          <view class="title">祝福语</view>
+          <textarea
+            class="blessing-textarea"
+            name="blessing"
+            model:value="{{ blessing }}"
+            placeholder="必填，写上您的祝福语，给心爱的他（她）送上你的祝福（请勿填写特殊符号或表情符号）"
+          />
+        </view>
+        <view class="confirm-btn">
+          <van-button round block type="primary" form-type="submit">确定</van-button>
+        </view>
+      </form>
+    </view>
+  </van-action-sheet>
+</view>

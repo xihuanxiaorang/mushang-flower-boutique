@@ -47,7 +47,7 @@
     {
       "root": "modules/goodsModule",
       "name": "goodsModule",
-      "pages": ["pages/goods/list/list"]
+      "pages": ["pages/goods/list/list", "pages/goods/detail/detail"]
     }
   ],
   "preloadRule": {

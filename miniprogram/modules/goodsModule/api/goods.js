@@ -12,3 +12,13 @@ import http from '@/utils/http'
 export const getGoodsList = ({ page, limit, ...data }) => {
   return http.get(`/goods/list/${page}/${limit}`, data)
 }
+
+/**
+ * 根据商品id获取商品详情
+ *
+ * @param {number} id - 商品id
+ * @returns {Promise} - 返回一个 Promise 对象，该对象在请求成功后解析为商品详情
+ */
+export const getGoodsById = (id) => {
+  return http.get(`/goods/${id}`)
+}

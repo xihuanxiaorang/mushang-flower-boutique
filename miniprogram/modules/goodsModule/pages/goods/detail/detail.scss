@@ -1,0 +1,113 @@
+.goods-detail-container {
+  padding: 0;
+  .banner-img {
+    width: 100%;
+    height: 800rpx;
+  }
+  .base-info {
+    background-color: #ffffff;
+    margin: -80rpx 16rpx 0 16rpx;
+    padding: 40rpx;
+    border-radius: 18rpx;
+    .price-wrapper {
+      display: flex;
+      align-items: center;
+      .price {
+        font-size: 36rpx;
+        font-weight: bold;
+        color: global.$primary-color;
+      }
+      .origin-price {
+        margin-left: 20rpx;
+        font-size: 24rpx;
+        color: #b4babf;
+        text-decoration-line: line-through;
+      }
+    }
+    .title {
+      padding-top: 20rpx;
+      font-size: 32rpx;
+      font-weight: 600;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .desc {
+      padding-top: 20rpx;
+      font-size: 24rpx;
+      color: #999999;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+  .detail-wrapper {
+    margin: 20rpx 16rpx 100rpx;
+    background-color: #ffffff;
+    padding: 20rpx 16rpx;
+    border-radius: 16rpx;
+    .detail-img {
+      width: 100%;
+    }
+  }
+  .popup {
+    padding: 32rpx;
+    .info {
+      display: flex;
+      padding: 0 32rpx 40rpx 0;
+      .img {
+        width: 250rpx;
+        height: 250rpx;
+        border-radius: 16rpx;
+      }
+      .right {
+        margin-left: 20rpx;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .title {
+          font-size: 30rpx;
+          line-height: 40rpx;
+          font-weight: bold;
+        }
+        .buy {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .price {
+            font-size: 36rpx;
+            font-weight: bold;
+            color: global.$primary-color;
+            .symbol {
+              font-size: 24rpx;
+              padding-right: 4rpx;
+              font-weight: normal;
+            }
+          }
+        }
+      }
+    }
+    .blessing-wrapper {
+      margin-bottom: 24rpx;
+      overflow: hidden;
+      .title {
+        font-size: 28rpx;
+        color: #333333;
+      }
+      .blessing-textarea {
+        margin-top: 24rpx;
+        width: 100%;
+        background-color: #f7f8fa;
+        border-radius: 24rpx;
+        padding: 32rpx 24rpx;
+        box-sizing: border-box;
+        font-size: 26rpx;
+        height: 200rpx;
+      }
+    }
+    .confirm-btn {
+      padding: 32rpx;
+    }
+  }
+}

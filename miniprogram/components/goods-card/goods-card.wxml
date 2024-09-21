@@ -1,5 +1,5 @@
 <view class="goods-container">
-  <navigator hover-class="none" url="/pages/goods/detail/detail?goodsId={{goods.id}}">
+  <navigator hover-class="none" url="/modules/goodsModule/pages/goods/detail/detail?id={{ goods.id }}">
     <image class="goods-img" src="{{ goods.imageUrl }}" mode="aspectFill" />
     <view class="info">
       <text class="name">{{ goods.name }}</text>
