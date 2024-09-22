@@ -31,7 +31,10 @@
       </view>
     </van-empty>
   </block>
-  <navigator hover-class="none" url="/modules/settingModule/pages/address/add/add">
-    <button class="add-address-btn">新增地址</button>
-  </navigator>
+  <view class="bottom">
+    <navigator hover-class="none" url="/modules/settingModule/pages/address/add/add">
+      <van-button round block color="#f3514f">新增地址</van-button>
+    </navigator>
+    <view class="safe"></view>
+  </view>
 </view>

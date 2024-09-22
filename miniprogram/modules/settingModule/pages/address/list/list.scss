@@ -1,53 +1,57 @@
-.van-swipe-cell {
-  width: 100%;
-  background-color: #ffffff;
-  border-radius: 16rpx;
-  overflow: hidden;
-  margin: 20rpx 0;
-  .van-cell {
-    padding: 30rpx;
-    .address-item {
-      display: flex;
-      justify-content: space-between;
-      .address-detail {
-        flex: 1;
-        .location {
-          color: #000000;
-          text-align: left;
-          font-size: 28rpx;
-          font-weight: bold;
-        }
-        .info {
-          margin-top: 16rpx;
-          font-size: 26rpx;
-          color: #999;
-          display: flex;
-          view:not(:first-child) {
-            margin-left: 10rpx;
+.container {
+  // van-button按钮默认高度+底部安全距离+bottom区域上下内边距
+  padding-bottom: calc(var(--button-default-height) + env(safe-area-inset-bottom) + 32rpx);
+  .van-swipe-cell {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 16rpx;
+    overflow: hidden;
+    margin: 20rpx 0;
+    .van-cell {
+      padding: 30rpx;
+      .address-item {
+        display: flex;
+        justify-content: space-between;
+        .address-detail {
+          flex: 1;
+          .location {
+            color: #000000;
+            text-align: left;
+            font-size: 28rpx;
+            font-weight: bold;
+          }
+          .info {
+            margin-top: 16rpx;
+            font-size: 26rpx;
+            color: #999;
+            display: flex;
+            view:not(:first-child) {
+              margin-left: 10rpx;
+            }
           }
         }
-      }
-      .icon-edit {
-        color: #969799;
-        margin-left: 32rpx;
-        font-size: 32rpx;
-        height: 48rpx;
-        line-height: 48rpx;
-        text-align: center;
+        .icon-edit {
+          color: #969799;
+          margin-left: 32rpx;
+          font-size: 32rpx;
+          height: 48rpx;
+          line-height: 48rpx;
+          text-align: center;
+        }
       }
     }
-  }
-  .van-swipe-cell__right {
-    width: 130rpx;
-    .delete-btn {
-      font-size: 24rpx;
-      background-color: global.$primary-color;
-      color: #fff;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .van-swipe-cell__right {
+      width: 130rpx;
+      .delete-btn {
+        font-size: 24rpx;
+        background-color: global.$primary-color;
+        color: #fff;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
 }
@@ -66,23 +70,24 @@
   }
 }
 
-.add-address-btn {
-  width: 718rpx;
-  height: 80rpx;
-  border-radius: 50rpx;
-  background-color: global.$primary-color;
-  color: #ffffff;
-  font-size: 30rpx;
-  line-height: 30rpx;
+.bottom {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  user-select: none;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  position: absolute;
-  bottom: calc(10rpx + constant(safe-area-inset-bottom));
-  bottom: calc(10rpx + env(safe-area-inset-bottom));
-  left: 50%;
-  transform: translateX(-50%);
-  &.button-hover {
-    background-color: #bd0022;
+  background-color: #ffffff;
+  navigator {
+    width: 100%;
+    padding: 16rpx;
+    box-sizing: border-box;
+  }
+  .safe {
+    width: 100%;
+    height: env(safe-area-inset-bottom);
   }
 }
