@@ -1,11 +1,12 @@
 import * as goodsApi from '../../../api/goods'
-import * as cartApi from '../../../api/cart'
+import { cartApi } from '@/api/index'
 import { storeBindingsBehavior } from 'mobx-miniprogram-bindings'
 import { userStore } from '@/store/index'
 import { useToast } from '@/utils/extendApi'
+const computedBehavior = require('miniprogram-computed').behavior
 
 Page({
-  behaviors: [storeBindingsBehavior],
+  behaviors: [storeBindingsBehavior, computedBehavior],
 
   /**
    * 页面的初始数据
@@ -34,7 +35,7 @@ Page({
     /**
      * 购物车中商品总数量
      */
-    total: '',
+    total: 0,
   },
 
   storeBindings: [
@@ -45,6 +46,14 @@ Page({
       },
     },
   ],
+
+  computed: {
+    totalCount(data) {
+      const { total } = data
+      if (total === 0) return ''
+      return total > 99 ? '99+' : `${total}`
+    },
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -127,6 +136,6 @@ Page({
     if (!this.data.userInfo) return
     const cartList = await cartApi.getCartList()
     const total = cartList.reduce((sum, item) => sum + item.count, 0)
-    this.setData({ total: total > 99 ? '99+' : total + '' })
+    this.setData({ total })
   },
 })

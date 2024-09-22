@@ -1,46 +1,44 @@
+import { storeBindingsBehavior } from 'mobx-miniprogram-bindings'
+import { userStore } from '@/store/index'
+import { cartApi } from '@/api/index'
+
 Page({
+  behaviors: [storeBindingsBehavior],
+
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    /**
+     * 购物车中的商品列表数据
+     */
+    cartList: [],
+  },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {},
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {},
+  storeBindings: [
+    {
+      store: userStore,
+      fields: {
+        userInfo: (store) => store.userInfo,
+      },
+    },
+  ],
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {},
+  onShow() {
+    this.getCartList()
+  },
 
   /**
-   * 生命周期函数--监听页面隐藏
+   * 获取购物车中的商品列表
    */
-  onHide() {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {},
+  async getCartList() {
+    if (!this.data.userInfo) {
+      return
+    }
+    const cartList = await cartApi.getCartList()
+    this.setData({ cartList })
+  },
 })
