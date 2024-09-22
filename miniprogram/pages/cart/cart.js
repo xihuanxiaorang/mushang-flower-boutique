@@ -2,6 +2,7 @@ import { storeBindingsBehavior } from 'mobx-miniprogram-bindings'
 import { userStore } from '@/store/index'
 import { cartApi } from '@/api/index'
 import { useModal, useToast } from '@/utils/extendApi'
+import { debounce } from 'miniprogram-licia'
 const computedBehavior = require('miniprogram-computed').behavior
 
 Page({
@@ -86,14 +87,14 @@ Page({
    *
    * @param {Event} e 事件对象，包含商品id、索引和新旧数量
    */
-  async changeCount(e) {
+  changeCount: debounce(async function (e) {
     const { id, index, count: oldCount } = e.currentTarget.dataset
     const newCount = e.detail
     const diff = newCount - oldCount
     if (diff === 0) return
     await cartApi.addCart({ id, count: diff })
     this.setData({ [`cartList[${index}].count`]: newCount })
-  },
+  }, 500),
 
   /**
    * 删除购物车中的某个商品。
