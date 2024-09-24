@@ -1,0 +1,106 @@
+.order-list-container {
+  .order {
+    margin-bottom: 16rpx;
+    padding: 24rpx 32rpx;
+    background-color: #ffffff;
+    border-radius: 18rpx;
+    overflow: hidden;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .orderNo {
+        font-size: 28rpx;
+        line-height: 40rpx;
+        color: #333333;
+        display: flex;
+        align-items: center;
+        .no {
+          margin-left: 12rpx;
+          font-weight: bold;
+        }
+      }
+      .status {
+        font-size: 26rpx;
+        line-height: 40rpx;
+        &.active {
+          color: global.$primary-color;
+        }
+      }
+    }
+    .goods-list-wrapper {
+      padding: 20rpx 0;
+      .item {
+        display: flex;
+        padding: 20rpx 0;
+        .img {
+          width: 140rpx;
+          height: 140rpx;
+          border-radius: 16rpx;
+        }
+        .right {
+          margin-left: 20rpx;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          color: #333;
+          .title {
+            font-size: 26rpx;
+            line-height: 44rpx;
+            font-weight: bold;
+            text-align: left;
+          }
+          .buy {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .price {
+              font-size: 30rpx;
+              color: global.$primary-color;
+              .symbol {
+                font-size: 24rpx;
+                padding-right: 4rpx;
+                font-weight: normal;
+              }
+            }
+            .count {
+              font-size: 24rpx;
+              color: #999;
+            }
+          }
+        }
+      }
+    }
+    .footer {
+      .total-amount-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .label {
+          font-size: 28rpx;
+          line-height: 40rpx;
+          color: #333333;
+        }
+        .amount {
+          margin-left: 8rpx;
+          color: global.$primary-color;
+          font-size: 36rpx;
+          font-weight: bold;
+          .symbol {
+            font-size: 24rpx;
+            padding-right: 4rpx;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+}
+.van-empty {
+  padding: 100rpx 0 !important;
+  .van-empty__image {
+    width: 400rpx !important;
+    height: 400rpx !important;
+  }
+}

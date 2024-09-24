@@ -53,3 +53,13 @@ export const getPrePayOrder = (orderNo) => {
 export const getPayStatus = (orderNo) => {
   return http.get(`/webChat/queryPayStatus/${orderNo}`)
 }
+
+/**
+ * 获取订单列表
+ * @param {number} page - 当前页码
+ * @param {number} limit - 每页的数量
+ * @returns {Promise} 返回一个 Promise 对象，该对象在请求成功后解析为订单列表数据
+ */
+export const getOrderList = (page, limit) => {
+  return http.get(`/order/order/${page}/${limit}`)
+}

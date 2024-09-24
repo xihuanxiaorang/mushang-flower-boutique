@@ -52,7 +52,7 @@
     {
       "root": "modules/orderPayModule",
       "name": "orderPayModule",
-      "pages": ["pages/order/detail/detail"]
+      "pages": ["pages/order/detail/detail", "pages/order/list/list"]
     }
   ],
   "preloadRule": {

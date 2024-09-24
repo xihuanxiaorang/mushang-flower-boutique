@@ -1,0 +1,51 @@
+<view class="container">
+  <block wx:if="{{ (orderList && orderList.length > 0) || isLoading }}">
+    <view class="order-list-container">
+      <block wx:for="{{ orderList }}" wx:key="id">
+        <view class="order">
+          <view class="header">
+            <view class="orderNo">
+              <text class="label">订单号</text>
+              <text class="no">{{ item.orderNo }}</text>
+            </view>
+            <view class="status {{ item.orderStatus !== 1 ? 'active' : ''}}"
+              >{{ item.orderStatus === 1 ? '已支付' : '未支付' }}</view
+            >
+          </view>
+          <view class="goods-list-wrapper">
+            <block wx:for="{{ item.orderDetailList }}" wx:key="id">
+              <view class="item">
+                <image class="img" src="{{ item.imageUrl }}" mode="aspectFill" />
+                <view class="right">
+                  <view class="title">{{ item.name }}</view>
+                  <view class="buy">
+                    <view class="price">
+                      <text class="symbol">¥</text>
+                      <text class="number">{{ item.price }}</text>
+                    </view>
+                    <view class="count">x{{ item.count }}</view>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+          <view class="footer">
+            <view class="total-amount-wrapper">
+              <text class="label">实付</text>
+              <text class="amount">
+                <text class="symbol">¥</text>
+                <text class="number">{{ item.totalAmount }}</text>
+              </text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <van-divider wx:if="{{ noMore }}" contentPosition="center">没有更多数据了~</van-divider>
+  </block>
+  <van-empty wx:else image="/assets/images/no-data.svg" description="还没有购买商品，快去购买吧～">
+    <navigator open-type="switchTab" url="/pages/index/index" hover-class="none">
+      <van-button round color="#f3514f">购买商品</van-button>
+    </navigator>
+  </van-empty>
+</view>
