@@ -67,6 +67,10 @@
     "pages/cart/cart": {
       "network": "all",
       "packages": ["orderPayModule"]
+    },
+    "modules/orderPayModule/pages/order/detail/detail": {
+      "network": "all",
+      "packages": ["settingModule"]
     }
   },
   "resolveAlias": {
