@@ -127,7 +127,32 @@ Page({
     }
     const valid = await this.validateForm(params)
     if (!valid) return
+    const orderNo = await orderApi.submitOrder(params)
+    this.advancePay(orderNo)
   }, 500),
+
+  /**
+   * 完成支付
+   *
+   * 获取预支付订单信息，并使用 wx.requestPayment 发起支付请求。查询支付状态，并根据结果跳转至相应页面
+   *
+   * @param {string} orderNo 订单号
+   */
+  async advancePay(orderNo) {
+    try {
+      const payParams = await orderApi.getPrePayOrder(orderNo)
+      const payInfo = await wx.requestPayment(payParams)
+      console.log(payInfo)
+      const payStatus = await orderApi.getPayStatus(orderNo)
+      console.log(payStatus)
+      wx.redirectTo({
+        url: '/modules/orderPayModule/pages/order/list/list',
+        success: () => useToast({ title: '支付成功', icon: 'success' }),
+      })
+    } catch (err) {
+      useToast({ title: '支付失败，请联系客服', icon: 'error' })
+    }
+  },
 
   /**
    * 验证表单数据
