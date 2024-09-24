@@ -48,6 +48,11 @@
       "root": "modules/goodsModule",
       "name": "goodsModule",
       "pages": ["pages/goods/list/list", "pages/goods/detail/detail"]
+    },
+    {
+      "root": "modules/orderPayModule",
+      "name": "orderPayModule",
+      "pages": ["pages/order/detail/detail"]
     }
   ],
   "preloadRule": {
@@ -58,6 +63,10 @@
     "pages/category/category": {
       "network": "all",
       "packages": ["goodsModule"]
+    },
+    "pages/cart/cart": {
+      "network": "all",
+      "packages": ["orderPayModule"]
     }
   },
   "resolveAlias": {

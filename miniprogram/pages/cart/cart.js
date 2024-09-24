@@ -112,4 +112,17 @@ Page({
       useToast({ icon: 'success', title: '删除成功' })
     }
   },
+
+  /**
+   * 跳转到订单支付页面
+   */
+  toPay() {
+    const { cartList } = this.data
+    const checked = cartList && cartList.some((item) => item.isChecked)
+    if (!checked) {
+      useToast({ title: '请选择需要购买的商品' })
+      return
+    }
+    wx.navigateTo({ url: '/modules/orderPayModule/pages/order/detail/detail' })
+  },
 })

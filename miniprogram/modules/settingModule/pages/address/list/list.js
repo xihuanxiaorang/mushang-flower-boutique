@@ -12,7 +12,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {},
+  onLoad(options) {
+    const { navigateFrom } = options
+    if (navigateFrom) this.navigateFrom = navigateFrom
+  },
 
   /**
    * 获取用户收货地址列表
@@ -50,11 +53,6 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {},
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
@@ -62,27 +60,19 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面隐藏
+   * 选择地址
+   *
+   * 用于订单结算页面快速更换收货地址，在选择地址后将地址保存到全局变量中备用，然后在订单结算页面中取出使用
+   *
+   * @param {Event} e 事件对象,，包含要选择的收货地址索引
    */
-  onHide() {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {},
+  chooseAddress(e) {
+    if (this.navigateFrom !== 'orderPay') return
+    const { index } = e.currentTarget.dataset
+    const address = this.data.addressList[index]
+    if (address) {
+      getApp().globalData.address = address
+      wx.navigateBack()
+    }
+  },
 })

@@ -1,0 +1,130 @@
+.container {
+  // van-button按钮默认高度+底部安全距离+bottom区域上下内边距
+  padding-bottom: calc(var(--button-default-height) + env(safe-area-inset-bottom) + 32rpx);
+  .address-wrapper {
+    border-radius: 16rpx;
+    background-color: #ffffff;
+    overflow: hidden;
+    .add-address {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #232628;
+      height: 140rpx;
+      .icon-add {
+        font-size: 44rpx;
+      }
+      .desc {
+        margin-left: 14rpx;
+        font-size: 30rpx;
+      }
+    }
+    .van-cell {
+      padding: 30rpx;
+      .address-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .address-detail {
+          flex: 1;
+          .location {
+            color: #000000;
+            text-align: left;
+            font-size: 28rpx;
+            font-weight: bold;
+          }
+          .info {
+            margin-top: 16rpx;
+            font-size: 26rpx;
+            color: #999;
+            display: flex;
+            view:not(:first-child) {
+              margin-left: 10rpx;
+            }
+          }
+        }
+        .icon-arrow {
+          margin-left: 32rpx;
+          color: #969799;
+          font-size: 32rpx;
+          height: 48rpx;
+          line-height: 48rpx;
+        }
+      }
+    }
+  }
+  .order-wrapper {
+    margin-top: 20rpx;
+    padding: 24rpx 0rpx;
+    border-radius: 16rpx;
+    background-color: #ffffff;
+    overflow: hidden;
+    .van-field__label {
+      color: #333333 !important;
+    }
+    .van-field__placeholder {
+      color: #969799 !important;
+    }
+    .van-field__control {
+      color: #333333 !important;
+    }
+    .van-cell__title {
+      max-width: none !important;
+    }
+    .blessing-textarea {
+      margin-top: 24rpx;
+      width: 100%;
+      height: 200rpx;
+      background-color: #f7f8fa;
+      border-radius: 24rpx;
+      padding: 32rpx 24rpx;
+      box-sizing: border-box;
+      font-size: 26rpx;
+      color: #333333;
+    }
+  }
+  .goods-wrapper {
+    margin-top: 20rpx;
+    padding: 20rpx;
+    border-radius: 16rpx;
+    background-color: #ffffff;
+    overflow: hidden;
+    .item {
+      display: flex;
+      padding: 20rpx 0;
+      .img {
+        width: 140rpx;
+        height: 140rpx;
+        border-radius: 16rpx;
+      }
+      .right {
+        margin-left: 20rpx;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: #333;
+        .title {
+          font-size: 26rpx;
+          line-height: 44rpx;
+          font-weight: bold;
+          text-align: left;
+        }
+        .buy {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .price {
+            font-size: 36rpx;
+            color: global.$primary-color;
+            .symbol {
+              font-size: 24rpx;
+              padding-right: 4rpx;
+              font-weight: normal;
+            }
+          }
+        }
+      }
+    }
+  }
+}

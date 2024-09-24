@@ -1,0 +1,101 @@
+<view class="container">
+  <view class="address-wrapper">
+    <block wx:if="{{ address }}">
+      <navigator hover-class="none" url="/modules/settingModule/pages/address/list/list?navigateFrom=orderPay">
+        <van-cell border="{{ false }}">
+          <view class="address-item">
+            <view class="address-detail">
+              <view class="location">{{ address.fullAddress }}</view>
+              <view class="info">
+                <view class="phone">{{ address.phone }}</view>
+                <view class="name">{{ address.name }}</view>
+              </view>
+            </view>
+            <view class="iconfont icon-arrow" bind:tap="editAddress" data-id="{{ item.id }}"> </view>
+          </view>
+        </van-cell>
+      </navigator>
+    </block>
+    <block wx:else>
+      <navigator hover-class="none" class="add-address" url="/modules/settingModule/pages/address/list/list">
+        <view class="iconfont icon-add"></view>
+        <view class="desc">添加收货地址</view>
+      </navigator>
+    </block>
+  </view>
+  <view class="order-wrapper">
+    <van-cell-group border="{{ false }}">
+      <van-field
+        name="name"
+        center
+        border="{{ false }}"
+        title-width="200rpx"
+        label="订购人姓名"
+        label-class="filed-label"
+        input-class="input-class"
+        input-align="right"
+        placeholder="请输入订购人的姓名"
+        model:value="{{ name }}"
+      />
+      <van-field
+        name="phone"
+        center
+        border="{{ false }}"
+        title-width="200rpx"
+        label="订购人手机号"
+        label-class="filed-label"
+        input-class="input-class"
+        type="number"
+        maxlength="11"
+        placeholder="请输入订购人的手机号"
+        input-align="right"
+        model:value="{{ phone }}"
+      />
+      <van-cell
+        center
+        border="{{ false }}"
+        title-width="200rpx"
+        title="期望送达日期"
+        bind:click="showDatetimePickerPopup"
+      >
+        <view wx:if="{{ deliveryDate }}" style="color: #333333">{{ deliveryDate }}</view>
+        <view wx:else>请选择期望送达日期</view>
+      </van-cell>
+      <van-cell center border="{{ false }}" title-width="200rpx" title="订单备注" use-label-slot>
+        <textarea
+          slot="label"
+          name="blessing"
+          class="blessing-textarea"
+          model:value="{{ blessing }}"
+          placeholder="写上您的祝福语，给心爱的他（她）送上你的祝福（请勿填写特殊符号或表情符号）"
+        />
+      </van-cell>
+    </van-cell-group>
+  </view>
+  <view class="goods-wrapper">
+    <block wx:for="{{ order.cartVoList }}" wx:key="goodsId">
+      <view class="item">
+        <image class="img" src="{{ item.imageUrl }}" mode="aspectFill" />
+        <view class="right">
+          <view class="title">{{ item.name }}</view>
+          <view class="buy">
+            <view class="price">
+              <text class="symbol">¥</text>
+              <text class="number">{{ item.price }}</text>
+            </view>
+            <view class="count">x{{ item.count }}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<van-submit-bar price="{{ order.totalAmount * 100 }}" button-text="提交订单" bind:submit="submitOrder" />
+<van-popup round show="{{ show }}" position="bottom" bind:close="closeDatetimePickerPopup">
+  <van-datetime-picker
+    type="date"
+    min-date="{{ minDate }}"
+    bind:confirm="comfirmDeliveryDate"
+    bind:cancel="closeDatetimePickerPopup"
+  />
+</van-popup>

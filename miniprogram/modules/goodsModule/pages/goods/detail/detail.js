@@ -120,7 +120,7 @@ Page({
       return
     }
     if (actionType === 'buyNow') {
-      wx.navigateTo({ url: `/modules/orderPayModule/pages/order/detail/detail?id=${id}&blessing=${blessing}` })
+      wx.navigateTo({ url: `/modules/orderPayModule/pages/order/detail/detail?goodsId=${id}&blessing=${blessing}` })
     } else {
       await cartApi.addCart({ id, count, blessing })
       this.getCartCount()
